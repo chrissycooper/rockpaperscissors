@@ -1,0 +1,35 @@
+* {
+    border: solid salmon;
+    text-align: center;
+    font-family: 'Melted Monster';
+    color: red;
+    background-color: rgb(29, 27, 27);
+}
+
+.hidden {
+display: none;
+}
+
+@font-face {
+    font-family: "Melted Monster";
+    src: url(https://www.dafont.com/melted-monster.font);
+}
+
+body {
+    display: flex;
+    height: 96vh;
+}
+
+h1{
+    font-size: 75px;
+}
+
+main {
+    width: 60%;
+    height: 100%;
+}
+
+aside {
+    height: 100%;
+    width: 20%;
+}
