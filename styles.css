@@ -1,5 +1,5 @@
 * {
-    border: solid salmon;
+    /* border: solid salmon; */
     text-align: center;
     font-family: 'Melted Monster';
     color: red;
@@ -20,16 +20,18 @@ body {
     height: 96vh;
 }
 
-h1{
+h1 {
     font-size: 75px;
 }
 
 h2 {
     font-size: 60px;
+    background-color: black;
 }
 
 h3 {
     font-size: 40px;
+    background-color: black;
 }
 
 main {
@@ -47,16 +49,16 @@ main {
 
 .game-mode {
     background-color: red;
-    border: solid blue;
-    /* color: black; */
+    /* border: solid blue; */
     width: 350px;
-    margin-bottom: 100px
+    margin-bottom: 150px
 }
 
 
 aside {
     height: 100%;
     width: 20%;
+    background-color: black;
 }
 
 button {
