@@ -18,11 +18,11 @@ class Game {
             do for each one, I'd like to try with math as well
         */
 
-        if (this.playerOne.taketurn() === this.choicesEasy[0] && this.playerTwo.taketurn() === 'scissors'){
+        if (this.playerOne.move === 0 && this.playerTwo.move === 2){
             this.playerOne.wins += 1;
-        } else if (this.playerone.taketurn() === 'scissors' && this.playerTwo.taketurn() === 'paper') {
+        } else if (this.playerOne.move === 2 && this.playerTwo.move === 1) {
             this.playerOne.wins += 1;
-        } else if (this.playerOne.taketurn() === 'paper' && this.playerTwo.taketurn() === 'rock') {
+        } else if (this.playerOne.move === 1 && this.playerTwo.move === 0) {
             this.playerOne.wins += 1;
         }
 
