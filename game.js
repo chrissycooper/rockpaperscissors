@@ -11,11 +11,23 @@ class Game {
         //each choice is related to an index value i.e a number
         /*if playerOne chooses 0, and playerTwo chooses 1 or 2, then playerTwo wins
             rock > scissors > paper > rock
+            0 > 1 > 2 > 0
         if (player1.taketurn() === 'rock' && player2.tt() === 'scissors'){
             player1.wins += 1;
         }
             do for each one, I'd like to try with math as well
         */
+
+        if (this.playerOne.taketurn() === this.choicesEasy[0] && this.playerTwo.taketurn() === 'scissors'){
+            this.playerOne.wins += 1;
+        } else if (this.playerone.taketurn() === 'scissors' && this.playerTwo.taketurn() === 'paper') {
+            this.playerOne.wins += 1;
+        } else if (this.playerOne.taketurn() === 'paper' && this.playerTwo.taketurn() === 'rock') {
+            this.playerOne.wins += 1;
+        }
+
+
+
         //if playerOne's choice === playerTwo's choice, then its a tie
         //two versions depending on game type (0-2) or (0-4) 
     }
