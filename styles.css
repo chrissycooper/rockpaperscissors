@@ -1,0 +1,67 @@
+* {
+    /* border: solid salmon; */
+    text-align: center;
+    font-family: 'Melted Monster';
+    color: red;
+    background-color: rgb(29, 27, 27);
+}
+
+.hidden {
+display: none;
+}
+
+@font-face {
+    font-family: "Melted Monster";
+    src: url(https://www.dafont.com/melted-monster.font);
+}
+
+body {
+    display: flex;
+    height: 96vh;
+}
+
+h1 {
+    font-size: 75px;
+}
+
+h2 {
+    font-size: 60px;
+    background-color: black;
+}
+
+h3 {
+    font-size: 40px;
+    background-color: black;
+}
+
+main {
+    width: 60%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.game-mode-text {
+    color: black;
+    background-color: red;
+    margin-bottom: 100px;
+}
+
+.game-mode {
+    background-color: red;
+    /* border: solid blue; */
+    width: 350px;
+    margin-bottom: 150px
+}
+
+
+aside {
+    height: 100%;
+    width: 20%;
+    background-color: black;
+}
+
+button {
+    padding: 20px;
+    border: dotted red;
+}
