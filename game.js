@@ -8,20 +8,23 @@ class Game {
             {name: "paper", beats: "rock", losesTo: "scissors"}, 
             {name: "scissors", beats: "paper", losesTo: "rock"}
         ]
-        this.choicesHard = ["final girl", "jock", "hunter", "killer", "nerd"];
+        this.choicesHard = [
+            {name: "final girl", beats: ['hunter', 'killer'], losesTo: ['jock', 'nerd']},
+            {name: "jock", beats: ['final girl', 'nerd'], losesTo: ['hunter', 'killer']}, 
+            {name: "hunter", beats: ['jock', 'killer'], losesTo: ['final girl', 'nerd']}, 
+            {name: "killer", beats: ['jock', 'nerd'], losesTo: ['final girl', 'hunter']},
+            {name: "nerd", beats: ['final girl', 'hunter'], losesTo: ['jock', 'killer']}
+        ];
     }
 
 
    
     checkForWinConditionsEasy() {
-        // if player one puts in 2, and playerTwo produces 0
+        var p1MoveObj = this.choicesEasy[this.playerOne.move] 
+        var p2MoveObj = this.choicesEasy[this.playerTwo.move] 
         if (this.playerOne.move === this.playerTwo.move) {
             return "It's a tie!"
-        } 
-        var p1MoveObj = this.choicesEasy[this.playerOne.move] //paper
-        var p2MoveObj = this.choicesEasy[this.playerTwo.move] //rock
-
-        if (p1MoveObj.name === p2MoveObj.beats) {
+        } else if (p1MoveObj.name === p2MoveObj.beats) {
             this.playerTwo.wins++;
         } else if (p2MoveObj.name === p1MoveObj.beats) {
             this.playerOne.wins++;
@@ -29,26 +32,7 @@ class Game {
     }
 
     checkForWinConditionsHard() {
-        if (this.playerOne.move === 0 && (this.playerTwo.move === 2 || this.playerTwo.move === 3 )){ //checked this syntax it does work
-            this.playerOne.wins += 1; 
-        } else if (this.playerOne.move === 2 && (this.playerTwo.move === 1 || this.playerTwo.move === 3)) {
-            this.playerOne.wins += 1;
-        } else if (this.playerOne.move === 1 && (this.playerTwo.move === 0 || this.playerTwo.move === 4)) {
-            this.playerOne.wins += 1;
-        } else if (this.playerOne.move === 3 && (this.playerTwo.move === 1 || this.playerTwo.move === 4)) {
-            this.playerOne.wins += 1;
-        } 
-    }
-
-    checkForWinConditionsHard2 () {
-        var result = (this.playerTwo.move - this.playerOne.move)
-        if(result === 0) {
-            return "it's a tie";
-        } else if (result % 2 === 1) {
-            this.playerOne.wins++;
-        } else if (result % 2 === 0) {
-            this.playerTwo.wins++;
-        } //could I just add some stipulations about negative numbers?
+        
     }
 
     resetGame() {
