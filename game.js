@@ -32,6 +32,13 @@ class Game {
     }
 
     checkForWinConditionsHard() {
+        var p1MoveObj = this.choicesHard[this.playerOne.move] 
+        var p2MoveObj = this.choicesHard[this.playerTwo.move]
+        //follow the above idea, but this time we have to check if it matches more than one thing.
+        //maybe use .includes()?
+        //we are checking if a property of an object is inside the key(which is an array) of another object
+        //we could say does it equal this.choicesHard.beats[0] || this.choicesHard.beats[1]
+        
         
     }
 
