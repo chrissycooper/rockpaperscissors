@@ -1,57 +1,56 @@
 class Game {
-    constructor(gameType) {
+    constructor() {
         this.playerOne = new Player('Human', '😎');
         this.playerTwo = new Player('Computer', '💻');
-        this.gameType = gameType; //"easy" or "hard"
-        this.choicesEasy = ["rock", "paper", "scissors"];
-        this.choicesHard = ["final girl", "jock", "hunter", "killer", "nerd"];
+        this.gameType = null;
+        this.choicesEasy = [
+            {name: "rock", beats: "scissors", losesTo: "paper"}, 
+            {name: "paper", beats: "rock", losesTo: "scissors"}, 
+            {name: "scissors", beats: "paper", losesTo: "rock"}
+        ]
+        this.choicesHard = [
+            {name: "final girl", beats: ['hunter', 'killer'], losesTo: ['jock', 'nerd']},
+            {name: "jock", beats: ['final girl', 'nerd'], losesTo: ['hunter', 'killer']}, 
+            {name: "hunter", beats: ['jock', 'killer'], losesTo: ['final girl', 'nerd']}, 
+            {name: "killer", beats: ['jock', 'nerd'], losesTo: ['final girl', 'hunter']},
+            {name: "nerd", beats: ['final girl', 'hunter'], losesTo: ['jock', 'killer']}
+        ];
     }
 
 
-    //the following functions correlate the move to the index value of the choices arrays, and decide a winner based on that
+   
     checkForWinConditionsEasy() {
-        if (this.playerOne.move === 0 && this.playerTwo.move === 2 ){
-            this.playerTwo.wins += 1;
-        } else if(this.playerOne.move === 2 && this.playerTwo.move === 1) {
-            this.playerTwo.wins += 1;
-        } else if(this.playerOne.move === 1 && this.playerTwo.move === 0) {
-            this.playerTwo.wins += 1;
-        } else if(this.playerOne.move === 2 && this.playerTwo.move === 0){
-            this.playerOne.wins += 1;
-        } else if(this.playerOne.move === 1 && this.playerTwo.move === 2) {
-            this.playerOne.wins += 1;
-        } else if(this.playerOne.move === 0 && this.playerTwo.move === 1) {
-            this.playerOne.wins += 1;
-        } else if(this.playerOne.move === this.playerTwo.move) {
-            return "it's a tie";
+        var p1MoveObj = this.choicesEasy[this.playerOne.move]; 
+        var p2MoveObj = this.choicesEasy[this.playerTwo.move];
+        if (this.playerOne.move === this.playerTwo.move) {
+            return "It's a tie!";
+        } else if (p1MoveObj.name === p2MoveObj.beats) {
+            this.playerTwo.wins++;
+        } else if (p2MoveObj.name === p1MoveObj.beats) {
+            this.playerOne.wins++;
         }
     }
 
     checkForWinConditionsHard() {
-        if (this.playerOne.move === 0 && (this.playerTwo.move === 2 || this.playerTwo.move === 3 )){ //checked this syntax it does work
-            this.playerOne.wins += 1; 
-        } else if (this.playerOne.move === 2 && (this.playerTwo.move === 1 || this.playerTwo.move === 3)) {
-            this.playerOne.wins += 1;
-        } else if (this.playerOne.move === 1 && (this.playerTwo.move === 0 || this.playerTwo.move === 4)) {
-            this.playerOne.wins += 1;
-        } else if (this.playerOne.move === 3 && (this.playerTwo.move === 1 || this.playerTwo.move === 4)) {
-            this.playerOne.wins += 1;
-        } 
-    }
-
-    checkForWinConditionsHard2 () {
-        var result = (this.playerTwo.move - this.playerOne.move)
-        if(result === 0) {
-            return "it's a tie";
-        } else if (result % 2 === 1) {
+        var p1MoveObj = this.choicesHard[this.playerOne.move]; 
+        var p2MoveObj = this.choicesHard[this.playerTwo.move];
+        if (this.playerOne.move === this.playerTwo.move) {
+            return "it's a tie, and it's working";
+        } else if(p1MoveObj.beats.includes(p2MoveObj.name)) { //if the object that p1 chooses has the name of the object p2 chooses in its 'beats' property, p1 gets a point
             this.playerOne.wins++;
-        } else if (result % 2 === 0) {
+            return "player one wins!";
+        } else if (p2MoveObj.beats.includes(p1MoveObj.name)) {
             this.playerTwo.wins++;
-        } //could I just add some stipulations about negative numbers?
+            return "player two wins!";
+        }
     }
 
     resetGame() {
-
+        //not sure what this is in the data model, it would make the choices accessible to the players again
+        //i suppose if the 'move' property of the players is 'null' the choices can be displayed 
+            //so this function can reset them to null, thereby re-displaying the choices
+    this.playerOne.move = null;
+    this.playerTwo.move = null;
     }
 
 }
@@ -62,4 +61,3 @@ class Game {
 //a way to detect when a game is a draw (no one has won) - compaare the two moves against each other
 //a way to reset the Game's board to begin a new game - reset game method?
 
-//basic rock paper scissors - two values are offered up, they are compared against each other, a winner is determined
