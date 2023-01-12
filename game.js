@@ -39,6 +39,17 @@ class Game {
         } 
     }
 
+    checkForWinConditionsHard2 () {
+        var result = (this.playerTwo.move - this.playerOne.move) % 5
+        if(result === 0) {
+            return "it's a tie";
+        } else if (result % 2 === 1) {
+            this.playerOne.wins++;
+        } else if (result % 2 === 0) {
+            this.playerTwo.wins++;
+        } 
+    }
+
     resetGame() {
 
     }

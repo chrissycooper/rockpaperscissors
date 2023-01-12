@@ -8,7 +8,7 @@ class Player {
 
   takeTurn(choice) {
     if (this.name === "Computer") {
-      var num = Math.floor(Math.random() * 3);
+      var num = Math.floor(Math.random() * 5);
       this.move = num;
     } else {
       this.move = choice;
