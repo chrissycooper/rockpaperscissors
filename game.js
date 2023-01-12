@@ -1,8 +1,8 @@
 class Game {
-    constructor(gameType) {
+    constructor() {
         this.playerOne = new Player('Human', '😎');
         this.playerTwo = new Player('Computer', '💻');
-        this.gameType = gameType; //"easy" or "hard"
+        this.gameType = null;
         this.choicesEasy = [
             {name: "rock", beats: "scissors", losesTo: "paper"}, 
             {name: "paper", beats: "rock", losesTo: "scissors"}, 
@@ -61,4 +61,3 @@ class Game {
 //a way to detect when a game is a draw (no one has won) - compaare the two moves against each other
 //a way to reset the Game's board to begin a new game - reset game method?
 
-//basic rock paper scissors - two values are offered up, they are compared against each other, a winner is determined\\
