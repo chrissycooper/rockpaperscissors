@@ -38,6 +38,13 @@ class Game {
         //maybe use .includes()?
         //we are checking if a property of an object is inside the key(which is an array) of another object
         //we could say does it equal this.choicesHard.beats[0] || this.choicesHard.beats[1]
+        if(p1MoveObj.beats.includes(p2MoveObj.name)) {
+            return "it's working";
+        } else if (!p1MoveObj.beats.includes(p2MoveObj.name)) {
+            return "it's still working"
+        } else if (this.playerOne.move === this.playerTwo.move) {
+            return "it's a tie, and it's working"
+        }
         
         
     }
