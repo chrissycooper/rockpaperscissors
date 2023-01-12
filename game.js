@@ -7,29 +7,36 @@ class Game {
         this.choicesHard = ["final girl", "jock", "hunter", "killer", "nerd"];
     }
 
-    checkForWinConditions() {
-        //each choice is related to an index value i.e a number
-        /*if playerOne chooses 0, and playerTwo chooses 1 or 2, then playerTwo wins
-            rock > scissors > paper > rock
-            0 > 1 > 2 > 0
-        if (player1.taketurn() === 'rock' && player2.tt() === 'scissors'){
-            player1.wins += 1;
+
+    //the following functions correlate the move to the index value of the choices arrays, and decide a winner based on that
+    checkForWinConditionsEasy() {
+        if (this.playerOne.move === 0 && this.playerTwo.move === 2 ){
+            this.playerTwo.wins += 1;
+        } else if(this.playerOne.move === 2 && this.playerTwo.move === 1) {
+            this.playerTwo.wins += 1;
+        } else if(this.playerOne.move === 1 && this.playerTwo.move === 0) {
+            this.playerTwo.wins += 1;
+        } else if(this.playerOne.move === 2 && this.playerTwo.move === 0){
+            this.playerOne.wins += 1;
+        } else if(this.playerOne.move === 1 && this.playerTwo.move === 2) {
+            this.playerOne.wins += 1;
+        } else if(this.playerOne.move === 0 && this.playerTwo.move === 1) {
+            this.playerOne.wins += 1;
+        } else if(this.playerOne.move === this.playerTwo.move) {
+            return "it's a tie";
         }
-            do for each one, I'd like to try with math as well
-        */
+    }
 
-        if (this.playerOne.move === 0 && this.playerTwo.move === 2){
+    checkForWinConditionsHard() {
+        if (this.playerOne.move === 0 && (this.playerTwo.move === 2 || this.playerTwo.move === 3 )){ //checked this syntax it does work
+            this.playerOne.wins += 1; 
+        } else if (this.playerOne.move === 2 && (this.playerTwo.move === 1 || this.playerTwo.move === 3)) {
             this.playerOne.wins += 1;
-        } else if (this.playerOne.move === 2 && this.playerTwo.move === 1) {
+        } else if (this.playerOne.move === 1 && (this.playerTwo.move === 0 || this.playerTwo.move === 4)) {
             this.playerOne.wins += 1;
-        } else if (this.playerOne.move === 1 && this.playerTwo.move === 0) {
+        } else if (this.playerOne.move === 3 && (this.playerTwo.move === 1 || this.playerTwo.move === 4)) {
             this.playerOne.wins += 1;
-        }
-
-
-
-        //if playerOne's choice === playerTwo's choice, then its a tie
-        //two versions depending on game type (0-2) or (0-4) 
+        } 
     }
 
     resetGame() {
