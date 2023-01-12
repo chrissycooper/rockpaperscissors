@@ -20,10 +20,10 @@ class Game {
 
    
     checkForWinConditionsEasy() {
-        var p1MoveObj = this.choicesEasy[this.playerOne.move] 
-        var p2MoveObj = this.choicesEasy[this.playerTwo.move] 
+        var p1MoveObj = this.choicesEasy[this.playerOne.move]; 
+        var p2MoveObj = this.choicesEasy[this.playerTwo.move];
         if (this.playerOne.move === this.playerTwo.move) {
-            return "It's a tie!"
+            return "It's a tie!";
         } else if (p1MoveObj.name === p2MoveObj.beats) {
             this.playerTwo.wins++;
         } else if (p2MoveObj.name === p1MoveObj.beats) {
@@ -32,12 +32,8 @@ class Game {
     }
 
     checkForWinConditionsHard() {
-        var p1MoveObj = this.choicesHard[this.playerOne.move] 
-        var p2MoveObj = this.choicesHard[this.playerTwo.move]
-        //follow the above idea, but this time we have to check if it matches more than one thing.
-        //maybe use .includes()?
-        //we are checking if a property of an object is inside the key(which is an array) of another object
-        //we could say does it equal this.choicesHard.beats[0] || this.choicesHard.beats[1]
+        var p1MoveObj = this.choicesHard[this.playerOne.move]; 
+        var p2MoveObj = this.choicesHard[this.playerTwo.move];
         if (this.playerOne.move === this.playerTwo.move) {
             return "it's a tie, and it's working";
         } else if(p1MoveObj.beats.includes(p2MoveObj.name)) { //if the object that p1 chooses has the name of the object p2 chooses in its 'beats' property, p1 gets a point
@@ -53,6 +49,8 @@ class Game {
         //not sure what this is in the data model, it would make the choices accessible to the players again
         //i suppose if the 'move' property of the players is 'null' the choices can be displayed 
             //so this function can reset them to null, thereby re-displaying the choices
+    this.playerOne.move = null;
+    this.playerTwo.move = null;
     }
 
 }
@@ -64,20 +62,3 @@ class Game {
 //a way to reset the Game's board to begin a new game - reset game method?
 
 //basic rock paper scissors - two values are offered up, they are compared against each other, a winner is determined\\
-
-
-// if (this.playerOne.move === 0 && this.playerTwo.move === 2 ){
-//     this.playerTwo.wins += 1;
-// } else if(this.playerOne.move === 2 && this.playerTwo.move === 1) {
-//     this.playerTwo.wins += 1;
-// } else if(this.playerOne.move === 1 && this.playerTwo.move === 0) {
-//     this.playerTwo.wins += 1;
-// } else if(this.playerOne.move === 2 && this.playerTwo.move === 0){
-//     this.playerOne.wins += 1;
-// } else if(this.playerOne.move === 1 && this.playerTwo.move === 2) {
-//     this.playerOne.wins += 1;
-// } else if(this.playerOne.move === 0 && this.playerTwo.move === 1) {
-//     this.playerOne.wins += 1;
-// } else if(this.playerOne.move === this.playerTwo.move) {
-//     return "it's a tie";
-// }
