@@ -38,19 +38,21 @@ class Game {
         //maybe use .includes()?
         //we are checking if a property of an object is inside the key(which is an array) of another object
         //we could say does it equal this.choicesHard.beats[0] || this.choicesHard.beats[1]
-        if(p1MoveObj.beats.includes(p2MoveObj.name)) {
-            return "it's working";
-        } else if (!p1MoveObj.beats.includes(p2MoveObj.name)) {
-            return "it's still working"
-        } else if (this.playerOne.move === this.playerTwo.move) {
-            return "it's a tie, and it's working"
+        if (this.playerOne.move === this.playerTwo.move) {
+            return "it's a tie, and it's working";
+        } else if(p1MoveObj.beats.includes(p2MoveObj.name)) { //if the object that p1 chooses has the name of the object p2 chooses in its 'beats' property, p1 gets a point
+            this.playerOne.wins++;
+            return "player one wins!";
+        } else if (p2MoveObj.beats.includes(p1MoveObj.name)) {
+            this.playerTwo.wins++;
+            return "player two wins!";
         }
-        
-        
     }
 
     resetGame() {
-
+        //not sure what this is in the data model, it would make the choices accessible to the players again
+        //i suppose if the 'move' property of the players is 'null' the choices can be displayed 
+            //so this function can reset them to null, thereby re-displaying the choices
     }
 
 }
