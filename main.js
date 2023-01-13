@@ -35,6 +35,7 @@ hardGameBoard.addEventListener('click', function(event){
 	makeMovesHard(event)
 	currentGame.checkForWinConditionsHard();
 	displayMoves();
+	displayWins();
 })
 
 
@@ -76,7 +77,9 @@ function displayMoves() {
 function displayWins() {
 	humanWins.innerText = `wins: ${currentGame.playerOne.wins}`;
 	computerWins.innerText = `wins: ${currentGame.playerTwo.wins}`;
-	if (currentGame.playerOne.wins > currentGame.playerTwo.wins) {
+	if (currentGame.playerOne.move === currentGame.playerTwo.move) {
+		subTitle.innerText = "It's a tie!!";
+	} else if (currentGame.playerOne.wins > currentGame.playerTwo.wins) {
 		subTitle.innerText = "Human wins this round!";
 	} else if (currentGame.playerOne.wins < currentGame.playerTwo.wins) {
 		subTitle.innerText = "Computer wins this round!";
