@@ -4,7 +4,7 @@ class Game {
         this.playerTwo = new Player('Computer', '💻');
         this.gameType = null;
         this.choicesEasy = [
-            {name: "rock", beats: "scissors", losesTo: "paper"}, 
+            {name: "rock", token: "💀", beats: "scissors", losesTo: "paper"}, 
             {name: "paper", beats: "rock", losesTo: "scissors"}, 
             {name: "scissors", beats: "paper", losesTo: "rock"}
         ]

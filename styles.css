@@ -59,6 +59,15 @@ main {
     margin-bottom: 50px;
 }
 
+.moves {
+    background-color: red;
+    /* border: solid blue; */
+    width: 400px;
+    height: 400px;
+    margin-bottom: 50px;
+    margin-top: 50px;
+}
+
 .game-board-easy {
     background-color: red;
     width: 400px;
