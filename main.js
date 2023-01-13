@@ -4,9 +4,6 @@ var currentGame = new Game();
     //create variables
     
     //then choosing a move
-				//make selectors? -
-        //when emojis are clikced on the human Player's move is changed based on the click
-        //the computer will also have to takeTurn()
         //set timeout will come in here
 
 				//next thing that needs to happen is that each choice is displayed side by side, and the subtitle needs to say who won
@@ -32,6 +29,7 @@ easyGameBoard.addEventListener('click', function(event) {
 
 hardGameBoard.addEventListener('click', function(event){
 	makeMovesHard(event)
+	displayMoves();
 })
 
 
@@ -57,11 +55,17 @@ function displayGameMode() {
 }
 
 function displayMoves() {
-	hide(easyGameBoard);
-	show(movesDisplay);
-	humanMove.innerText = currentGame.choicesEasy[currentGame.playerTwo.move].token; 
-	computerMove.innerText = currentGame.choicesEasy[currentGame.playerTwo.move].token;
-	// I'm working right here
+	if (currentGame.gameType === 'easy') {
+		hide(easyGameBoard);
+		show(movesDisplay);
+		humanMove.innerText = currentGame.choicesEasy[currentGame.playerOne.move].token; 
+		computerMove.innerText = currentGame.choicesEasy[currentGame.playerTwo.move].token;
+	} else if (currentGame.gameType === 'hard') {
+		hide(hardGameBoard);
+		show(movesDisplay);
+		humanMove.innerText = currentGame.choicesHard[currentGame.playerOne.move].token; 
+		computerMove.innerText = currentGame.choicesHard[currentGame.playerTwo.move].token;
+	}
 }
 
 function makeMovesEasy(event) {

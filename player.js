@@ -6,7 +6,7 @@ class Player {
     this.move = null;
   }
 
-  takeTurn(mode, choice) {        //maybe add an if/else for game mode? this could be in main if it's easier
+  takeTurn(mode, choice) {
     if (this.name === "Computer" && mode === 'easy') {
       var num = Math.floor(Math.random() * 3);
       this.move = num;

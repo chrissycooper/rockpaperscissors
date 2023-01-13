@@ -5,15 +5,15 @@ class Game {
         this.gameType = null;
         this.choicesEasy = [
             {name: "rock", token: "💀", beats: "scissors", losesTo: "paper"}, 
-            {name: "paper", beats: "rock", losesTo: "scissors"}, 
-            {name: "scissors", beats: "paper", losesTo: "rock"}
+            {name: "paper", token: "🫀", beats: "rock", losesTo: "scissors"}, 
+            {name: "scissors",token: "🔪", beats: "paper", losesTo: "rock"}
         ]
         this.choicesHard = [
-            {name: "final girl", beats: ['hunter', 'killer'], losesTo: ['jock', 'nerd']},
-            {name: "jock", beats: ['final girl', 'nerd'], losesTo: ['hunter', 'killer']}, 
-            {name: "hunter", beats: ['jock', 'killer'], losesTo: ['final girl', 'nerd']}, 
-            {name: "killer", beats: ['jock', 'nerd'], losesTo: ['final girl', 'hunter']},
-            {name: "nerd", beats: ['final girl', 'hunter'], losesTo: ['jock', 'killer']}
+            {name: "final girl", token: "👩🏼‍🦰", beats: ['hunter', 'killer'], losesTo: ['jock', 'nerd']},
+            {name: "jock", token: "🏋🏿", beats: ['final girl', 'nerd'], losesTo: ['hunter', 'killer']}, 
+            {name: "hunter", token: "🕵🏾", beats: ['jock', 'killer'], losesTo: ['final girl', 'nerd']}, 
+            {name: "killer", token: "🧟‍♂️", beats: ['jock', 'nerd'], losesTo: ['final girl', 'hunter']},
+            {name: "nerd", token: "🤓", beats: ['final girl', 'hunter'], losesTo: ['jock', 'killer']}
         ];
     }
 
