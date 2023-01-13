@@ -10,6 +10,7 @@ var currentGame = new Game();
     //create variables
     
     //then choosing a move
+				//make selectors? -
         //when emojis are clikced on the human Player's move is changed based on the click
         //the computer will also have to takeTurn()
         //set timeout will come in here
@@ -19,10 +20,15 @@ var chooseGameView = document.getElementById("chooseView");
 var easyGameBoard = document.querySelector(".game-board-easy");
 var hardGameBoard = document.querySelector(".game-board-hard");
 
-chooseGameView.addEventListener('click', function(event){
+chooseGameView.addEventListener('click', function(event) {
   setGameMode(event);
 	displayGameMode();
 })
+
+easyGameBoard.addEventListener('click', function(event) {
+	makeMoveEasy(event);
+})
+
 
 function setGameMode(event) {
 	if(event.target.id === 'easyMode') {
@@ -42,6 +48,22 @@ function displayGameMode() {
 	} else {
 		//show choose game view?
 	}
+}
+
+function makeMoveEasy(event) {
+		currentGame.playerTwo.takeTurn('easy');
+		if(event.target.id === 'rock') {
+			currentGame.playerOne.takeTurn('easy', 0);
+		} else if (event.target.id === 'paper') {
+			currentGame.playerOne.takeTurn('easy', 1);
+		} else if (event.target.id === 'scissors') {
+			currentGame.playerOne.takeTurn('easy', 2);
+		}
+		console.log(currentGame.playerOne.move);
+}
+
+function makeMoveHard(){
+
 }
 
 function hide(element){
