@@ -1,4 +1,4 @@
-var game = new Game();
+var currentGame = new Game();
 
 //onclick of easy mode or hard mode button, then game.gameType = easy or hard depending on what was clicked
         //if gameType = easy, then use the easy choices
@@ -8,14 +8,6 @@ var game = new Game();
 
 //connect data model to DOM
     //create variables
-    //write show/hide functions
-
-    //start with choosing game mode
-        //variable to select the whole view so it can be hidden
-            //this can also be the section that has the event listener? if event.target.id = easyMode then make the game mode easy, etc
-        //add cursor: pointer to each individual div so they know they can click whereever they please
-        //displayGameMode() --
-            //if game mode is easy then show easy mode, hide choose mode view
     
     //then choosing a move
         //when emojis are clikced on the human Player's move is changed based on the click
@@ -23,3 +15,39 @@ var game = new Game();
         //set timeout will come in here
 
 //
+var chooseGameView = document.getElementById("chooseView");
+var easyGameBoard = document.querySelector(".game-board-easy");
+var hardGameBoard = document.querySelector(".game-board-hard");
+
+chooseGameView.addEventListener('click', function(event){
+  setGameMode(event);
+	displayGameMode();
+})
+
+function setGameMode(event) {
+	if(event.target.id === 'easyMode') {
+		currentGame.gameType = 'easy';
+	} else if (event.target.id === 'hardMode') {
+		currentGame.gameType = 'hard';
+	}
+}
+
+function displayGameMode() {
+	if(currentGame.gameType === 'easy') {
+		show(easyGameBoard);
+		hide(chooseGameView);
+	} else if (currentGame.gameType === 'hard') {
+		show(hardGameBoard);
+		hide(chooseGameView);
+	} else {
+		//show choose game view?
+	}
+}
+
+function hide(element){
+  element.classList.add('hidden');
+}
+
+function show(element) {
+  element.classList.remove('hidden');
+}

@@ -49,23 +49,24 @@ main {
     color: black;
     background-color: red;
     margin-bottom: 15px;
+    cursor: pointer;
 }
 
 .game-mode {
     background-color: red;
     /* border: solid blue; */
     width: 400px;
-    margin-bottom: 50px
+    margin-bottom: 50px;
 }
 
-.game-mode-easy {
+.game-board-easy {
     background-color: red;
     width: 400px;
     height: 400px;
     margin-top: 100px;
 }
 
-.game-mode-hard {
+.game-board-hard {
     background-color: red;
     width: 400px;
     height: 400px;
