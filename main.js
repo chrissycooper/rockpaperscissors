@@ -5,7 +5,6 @@ var currentGame = new Game();
     
     //then choosing a move
         //set timeout will come in here
-
 				//next thing that needs to happen is that each choice is displayed side by side, and the subtitle needs to say who won
 
 //
@@ -24,11 +23,13 @@ chooseGameView.addEventListener('click', function(event) {
 
 easyGameBoard.addEventListener('click', function(event) {
 	makeMovesEasy(event);
+	currentGame.checkForWinConditionsEasy();
 	displayMoves();
 })
 
 hardGameBoard.addEventListener('click', function(event){
 	makeMovesHard(event)
+	currentGame.checkForWinConditionsHard();
 	displayMoves();
 })
 
