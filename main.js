@@ -17,6 +17,7 @@ var currentGame = new Game();
 
 //
 var chooseGameView = document.getElementById("chooseView");
+var subTitle = document.getElementById("subTitle");
 var easyGameBoard = document.querySelector(".game-board-easy");
 var hardGameBoard = document.querySelector(".game-board-hard");
 
@@ -43,6 +44,7 @@ function setGameMode(event) {
 }
 
 function displayGameMode() {
+	subTitle.innerText = "Choose your fighter!"
 	if(currentGame.gameType === 'easy') {
 		show(easyGameBoard);
 		hide(chooseGameView);
