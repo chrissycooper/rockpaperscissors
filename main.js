@@ -26,7 +26,11 @@ chooseGameView.addEventListener('click', function(event) {
 })
 
 easyGameBoard.addEventListener('click', function(event) {
-	makeMoveEasy(event);
+	makeMovesEasy(event);
+})
+
+hardGameBoard.addEventListener('click', function(event){
+	makeMovesHard(event)
 })
 
 
@@ -50,20 +54,32 @@ function displayGameMode() {
 	}
 }
 
-function makeMoveEasy(event) {
-		currentGame.playerTwo.takeTurn('easy');
-		if(event.target.id === 'rock') {
-			currentGame.playerOne.takeTurn('easy', 0);
-		} else if (event.target.id === 'paper') {
-			currentGame.playerOne.takeTurn('easy', 1);
-		} else if (event.target.id === 'scissors') {
-			currentGame.playerOne.takeTurn('easy', 2);
-		}
+function makeMovesEasy(event) {
+	currentGame.playerTwo.takeTurn('easy');
+	if(event.target.id === 'rock') {
+		currentGame.playerOne.takeTurn('easy', 0);
+	} else if (event.target.id === 'paper') {
+		currentGame.playerOne.takeTurn('easy', 1);
+	} else if (event.target.id === 'scissors') {
+		currentGame.playerOne.takeTurn('easy', 2);
+	}
 		console.log(currentGame.playerOne.move);
 }
 
-function makeMoveHard(){
-
+function makeMovesHard(event){
+	currentGame.playerTwo.takeTurn('hard');
+	if(event.target.id === 'final-girl') {
+		currentGame.playerOne.takeTurn('easy', 0);
+	} else if (event.target.id === 'jock') {
+		currentGame.playerOne.takeTurn('easy', 1);
+	} else if (event.target.id === 'hunter') {
+		currentGame.playerOne.takeTurn('easy', 2);
+	} else if (event.target.id === 'killer') {
+		currentGame.playerOne.takeTurn('easy', 3);
+	} else if (event.target.id === 'nerd') {
+		currentGame.playerOne.takeTurn('easy', 4);
+	}
+	console.log(currentGame.playerOne.move);
 }
 
 function hide(element){
