@@ -16,8 +16,6 @@ class Game {
             {name: "nerd", token: "🤓", beats: ['final girl', 'hunter'], losesTo: ['jock', 'killer']}
         ];
     }
-
-
    
     checkForWinConditionsEasy() {
         var p1MoveObj = this.choicesEasy[this.playerOne.move]; 
@@ -52,12 +50,6 @@ class Game {
     this.playerOne.move = null;
     this.playerTwo.move = null;
     }
-
 }
 
-//a way to keep track of the data for the game board - the moves the players can make, i.e. the choices
-//a way to keep track of the selected game type - easy or hard mode
-//a way to check the Game's board data for win conditions - compare the two moves against each other
-//a way to detect when a game is a draw (no one has won) - compaare the two moves against each other
-//a way to reset the Game's board to begin a new game - reset game method?
 
