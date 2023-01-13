@@ -6,10 +6,6 @@
     background-color: rgb(29, 27, 27);
 }
 
-.hidden {
-display: none;
-}
-
 @font-face {
     font-family: "Melted Monster";
     src: url(Melted_Monster.ttf);
@@ -22,6 +18,7 @@ body {
 
 h1 {
     font-size: 75px;
+    margin: 20px;
 }
 
 h2 {
@@ -32,11 +29,11 @@ h2 {
 h3 {
     font-size: 40px;
     background-color: black;
-    margin-top: 20px;
+    margin-top: 10px;
 }
 
 h4 {
-    font-size: 25px; 
+    font-size: 20px; 
     background-color: red;
     color: black;
 }
@@ -51,13 +48,32 @@ main {
 .game-mode-text {
     color: black;
     background-color: red;
+    margin-bottom: 15px;
 }
 
 .game-mode {
     background-color: red;
-    border: solid blue;
+    /* border: solid blue; */
     width: 400px;
     margin-bottom: 50px
+}
+
+.game-mode-easy {
+    background-color: red;
+    width: 400px;
+    height: 400px;
+    margin-top: 100px;
+}
+
+.game-mode-hard {
+    background-color: red;
+    width: 400px;
+    height: 400px;
+    display:flex;
+    flex-flow: wrap;
+    align-items: center;
+    justify-content: center;
+    margin-top: 100px;
 }
 
 
@@ -65,10 +81,19 @@ aside {
     height: 100%;
     width: 20%;
     background-color: black;
+    display: flex;
+    flex-flow: column;
 }
 
 button {
     padding: 20px;
     border: dotted red;
-    /* align-self: flex-end; DIDNT WORK BUT I WANT IT TO*/
+    width: 100px;
+    /* flex-direction: row; */
+    align-self: center;
 }
+
+
+.hidden {
+    display: none;
+    }
