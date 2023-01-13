@@ -15,6 +15,9 @@ var computerMove = document.getElementById("computerMove");
 var easyGameBoard = document.querySelector(".game-board-easy");
 var hardGameBoard = document.querySelector(".game-board-hard");
 var movesDisplay = document.querySelector(".moves");
+var humanWins = document.getElementById("humanWins");
+var computerWins = document.getElementById("computerWins");
+
 
 chooseGameView.addEventListener('click', function(event) {
   setGameMode(event);
@@ -25,6 +28,7 @@ easyGameBoard.addEventListener('click', function(event) {
 	makeMovesEasy(event);
 	currentGame.checkForWinConditionsEasy();
 	displayMoves();
+	displayWins();
 })
 
 hardGameBoard.addEventListener('click', function(event){
@@ -69,6 +73,16 @@ function displayMoves() {
 	}
 }
 
+function displayWins() {
+	humanWins.innerText = `wins: ${currentGame.playerOne.wins}`;
+	computerWins.innerText = `wins: ${currentGame.playerTwo.wins}`;
+	if (currentGame.playerOne.wins > currentGame.playerTwo.wins) {
+		subTitle.innerText = "Human wins this round!";
+	} else if (currentGame.playerOne.wins < currentGame.playerTwo.wins) {
+		subTitle.innerText = "Computer wins this round!";
+	} 
+}
+
 function makeMovesEasy(event) {
 	currentGame.playerTwo.takeTurn('easy');
 	if(event.target.id === 'rock') {
@@ -78,7 +92,6 @@ function makeMovesEasy(event) {
 	} else if (event.target.id === 'scissors') {
 		currentGame.playerOne.takeTurn('easy', 2);
 	}
-		console.log(currentGame.playerOne.move);
 }
 
 function makeMovesHard(event){
@@ -94,7 +107,6 @@ function makeMovesHard(event){
 	} else if (event.target.id === 'nerd') {
 		currentGame.playerOne.takeTurn('easy', 4);
 	}
-	console.log(currentGame.playerOne.move);
 }
 
 function hide(element){
