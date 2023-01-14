@@ -28,7 +28,6 @@ easyGameBoard.addEventListener('click', function(event) {
 	currentGame.checkForWinConditionsEasy();
 	displayMoves();
 	displayWinsEasy();
-
 	setTimeout(displayGameMode, 2000)
 })
 
