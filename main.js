@@ -13,6 +13,7 @@ var playerOneToken = document.getElementById('playerOneToken');
 var playerOneName = document.getElementById('playerOneName');
 var playerTwoToken = document.getElementById('playerTwoToken');
 var playerTwoName = document.getElementById('playerTwoName');
+var changeGameBtn = document.getElementById('changeGameBtn');
 
 
 displayPlayerInfo();
@@ -28,7 +29,7 @@ easyGameBoard.addEventListener('click', function(event) {
 	currentGame.checkForWinConditionsEasy();
 	displayMoves();
 	displayWinsEasy();
-	setTimeout(displayGameMode, 2000)
+	setTimeout(displayGameMode, 2000);
 })
 
 hardGameBoard.addEventListener('click', function(event){
@@ -37,6 +38,11 @@ hardGameBoard.addEventListener('click', function(event){
 	displayMoves();
 	displayWinsHard();
 	setTimeout(displayGameMode, 2000);
+})
+
+changeGameBtn.addEventListener('click', function(){
+	currentGame.gameType = null;
+	console.log('clicked')
 })
 
 

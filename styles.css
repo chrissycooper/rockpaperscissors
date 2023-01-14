@@ -108,8 +108,9 @@ button {
     padding: 20px;
     border: dotted red;
     width: 100px;
-    /* flex-direction: row; */
+    flex-direction: row;
     align-self: center;
+    cursor: pointer;
 }
 
 
