@@ -7,6 +7,7 @@ var currentGame = new Game();
         //set timeout will come in here
 				//next thing that needs to happen is that each choice is displayed side by side, and the subtitle needs to say who won
 
+				//the points weren't working
 //
 var chooseGameView = document.getElementById("chooseView");
 var subTitle = document.getElementById("subTitle");
@@ -83,12 +84,15 @@ function displayMoves() {
 function displayWinsEasy() {
 	humanWins.innerText = `wins: ${currentGame.playerOne.wins}`;
 	computerWins.innerText = `wins: ${currentGame.playerTwo.wins}`;
+	var p1move = currentGame.playerOne.move;
+	var p2move = currentGame.playerTwo.move;
+	var easyMovesArr = currentGame.choicesEasy;
 
 	if (currentGame.playerOne.move === currentGame.playerTwo.move) {
 		subTitle.innerText = "It's a tie!!";
-	} else if (currentGame.choicesEasy[currentGame.playerOne.move].name === currentGame.choicesEasy[currentGame.playerTwo.move].losesTo) {
+	} else if (easyMovesArr[p1move].name === easyMovesArr[p2move].losesTo) {
 		subTitle.innerText = "Human wins this round!";
-	} else if (currentGame.choicesEasy[currentGame.playerTwo.move].name === currentGame.choicesEasy[currentGame.playerOne.move].losesTo) {
+	} else if (easyMovesArr[p2move].name === easyMovesArr[p1move].losesTo) {
 		subTitle.innerText = "Computer wins this round!";
 	} 
 }
