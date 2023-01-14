@@ -38,9 +38,8 @@ hardGameBoard.addEventListener('click', function(event){
 	makeMovesHard(event)
 	currentGame.checkForWinConditionsHard();
 	displayMoves();
-	// displayWins();
-	setTimeout(displayGameMode, 2000)
-
+	displayWinsHard();
+	setTimeout(displayGameMode, 2000);
 })
 
 
@@ -96,8 +95,21 @@ function displayWinsEasy() {
 		subTitle.innerText = "Computer wins this round!";
 	} 
 }
+function displayWinsHard() {
+	humanWins.innerText = `wins: ${currentGame.playerOne.wins}`;
+	computerWins.innerText = `wins: ${currentGame.playerTwo.wins}`;
+	var p1move = currentGame.playerOne.move;
+	var p2move = currentGame.playerTwo.move;
+	var hardMovesArr = currentGame.choicesHard;
 
-//instead of two separate functions maybe they can be like if(the game is easy && the opponents move is in the beats list) there would be four conditionals, but it could work?
+	if (currentGame.playerOne.move === currentGame.playerTwo.move) {
+		subTitle.innerText = "It's a tie!!";
+	} else if (hardMovesArr[p1move].beats.includes(hardMovesArr[p2move].name)) {
+		subTitle.innerText = "Human wins this round!";
+	} else if (hardMovesArr[p2move].beats.includes(hardMovesArr[p1move].name)) {
+		subTitle.innerText = "Computer wins this round!";
+	} 
+}
 
 
 function makeMovesEasy(event) {
