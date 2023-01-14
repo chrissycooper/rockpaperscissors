@@ -1,14 +1,5 @@
 var currentGame = new Game();
 
-//connect data model to DOM
-    //create variables
-    
-    //then choosing a move
-        //set timeout will come in here
-				//next thing that needs to happen is that each choice is displayed side by side, and the subtitle needs to say who won
-
-				//the points weren't working
-//
 var chooseGameView = document.getElementById("chooseView");
 var subTitle = document.getElementById("subTitle");
 var humanMove = document.getElementById("humanMove");
@@ -18,6 +9,13 @@ var hardGameBoard = document.querySelector(".game-board-hard");
 var movesDisplay = document.querySelector(".moves");
 var humanWins = document.getElementById("humanWins");
 var computerWins = document.getElementById("computerWins");
+var playerOneToken = document.getElementById('playerOneToken');
+var playerOneName = document.getElementById('playerOneName');
+var playerTwoToken = document.getElementById('playerTwoToken');
+var playerTwoName = document.getElementById('playerTwoName');
+
+
+displayPlayerInfo();
 
 
 chooseGameView.addEventListener('click', function(event) {
@@ -61,8 +59,6 @@ function displayGameMode() {
 		show(hardGameBoard);
 		hide(chooseGameView);
 		hide(movesDisplay);
-	} else {
-		//show choose game view?
 	}
 }
 
@@ -81,8 +77,7 @@ function displayMoves() {
 }
 
 function displayWinsEasy() {
-	humanWins.innerText = `wins: ${currentGame.playerOne.wins}`;
-	computerWins.innerText = `wins: ${currentGame.playerTwo.wins}`;
+	displayPlayerInfo();
 	var p1move = currentGame.playerOne.move;
 	var p2move = currentGame.playerTwo.move;
 	var easyMovesArr = currentGame.choicesEasy;
@@ -95,9 +90,9 @@ function displayWinsEasy() {
 		subTitle.innerText = "Computer wins this round!";
 	} 
 }
+
 function displayWinsHard() {
-	humanWins.innerText = `wins: ${currentGame.playerOne.wins}`;
-	computerWins.innerText = `wins: ${currentGame.playerTwo.wins}`;
+	displayPlayerInfo();
 	var p1move = currentGame.playerOne.move;
 	var p2move = currentGame.playerTwo.move;
 	var hardMovesArr = currentGame.choicesHard;
@@ -109,6 +104,15 @@ function displayWinsHard() {
 	} else if (hardMovesArr[p2move].beats.includes(hardMovesArr[p1move].name)) {
 		subTitle.innerText = "Computer wins this round!";
 	} 
+}
+
+function displayPlayerInfo() {
+	humanWins.innerText = `wins: ${currentGame.playerOne.wins}`;
+	computerWins.innerText = `wins: ${currentGame.playerTwo.wins}`;
+	playerOneToken.innerText = currentGame.playerOne.token;
+	playerOneName.innerText = currentGame.playerOne.name;
+	playerTwoToken.innerText = currentGame.playerTwo.token;
+	playerTwoName.innerText = currentGame.playerTwo.name;
 }
 
 
