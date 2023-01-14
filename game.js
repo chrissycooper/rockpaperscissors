@@ -42,11 +42,9 @@ class Game {
     }
 
     resetGame() {
-        //not sure what this is in the data model, it would make the choices accessible to the players again
-        //i suppose if the 'move' property of the players is 'null' the choices can be displayed 
-            //so this function can reset them to null, thereby re-displaying the choices
-    this.playerOne.move = null;
-    this.playerTwo.move = null;
+        this.gameType = null;
+        this.playerOne.wins = 0;
+        this.playerTwo.wins = 0;
     }
 }
 

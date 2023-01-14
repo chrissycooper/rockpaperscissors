@@ -21,7 +21,7 @@ displayPlayerInfo();
 
 chooseGameView.addEventListener('click', function(event) {
   setGameMode(event);
-	displayGameMode();
+  displayGameMode();
 })
 
 easyGameBoard.addEventListener('click', function(event) {
@@ -41,8 +41,8 @@ hardGameBoard.addEventListener('click', function(event){
 })
 
 changeGameBtn.addEventListener('click', function(){
-	currentGame.gameType = null;
-	console.log('clicked')
+	currentGame.resetGame();
+	displayChooseDifficulty();
 })
 
 
@@ -118,6 +118,17 @@ function displayPlayerInfo() {
 	playerOneName.innerText = currentGame.playerOne.name;
 	playerTwoToken.innerText = currentGame.playerTwo.token;
 	playerTwoName.innerText = currentGame.playerTwo.name;
+}
+
+function displayChooseDifficulty() {
+	if (!currentGame.gameType) {
+		subTitle.innerText = "Choose Your Difficulty Level!"
+		hide(easyGameBoard);
+		hide(hardGameBoard);
+		hide(movesDisplay);
+		show(chooseGameView);
+		displayPlayerInfo();
+	}
 }
 
 
