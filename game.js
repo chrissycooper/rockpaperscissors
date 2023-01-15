@@ -33,7 +33,7 @@ class Game {
         var p1MoveObj = this.choicesHard[this.playerOne.move]; 
         var p2MoveObj = this.choicesHard[this.playerTwo.move];
         if (this.playerOne.move === this.playerTwo.move) {
-            return "it's a tie, and it's working";
+            return "It's a tie!";
         } else if(p1MoveObj.beats.includes(p2MoveObj.name)) { 
             this.playerOne.wins++;
         } else if (p2MoveObj.beats.includes(p1MoveObj.name)) {

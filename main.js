@@ -1,5 +1,6 @@
-var currentGame = new Game();
+//Global Variables 👇
 
+var currentGame = new Game();
 
 var chooseGameView = document.getElementById("chooseView");
 var subTitle = document.getElementById("subTitle");
@@ -16,20 +17,20 @@ var playerTwoToken = document.getElementById('playerTwoToken');
 var playerTwoName = document.getElementById('playerTwoName');
 var changeGameBtn = document.getElementById('changeGameBtn');
 
-displayPlayerInfo();
+displayPlayerInfo(); //on page load, display the player info
 
-chooseGameView.addEventListener('click', function(event) {
-  setGameMode(event);
-  displayGameMode();
-})
+chooseGameView.addEventListener('click', function(event) { 
+  setGameMode(event);	//uses event delegation to set and display the game mode, if they click on 'easy', it sets the current game 's mode to 'easy'
+  displayGameMode(); //displays the view of the game mode depending on the gameType property of the current Game 
+});
 
-easyGameBoard.addEventListener('click', function(event) {
-	makeMovesEasy(event);
-	currentGame.checkForWinConditionsEasy();
-	displayMoves();
-	displayWinsEasy();
-	setTimeout(displayGameMode, 2000);
-})
+easyGameBoard.addEventListener('click', function(event) { //uses event delegation to figure out which move the user is making, by adding the EL to the whole easy board section
+	makeMovesEasy(event); //sets the move property for the two players
+	currentGame.checkForWinConditionsEasy(); //compares the moves of the two players based on the information stored in the choices array 
+	displayMoves(); //displays moves depending on currentGame.gameType
+	displayWinsEasy(); //decides the subtitle mainly, updates the win count on the DOM
+	setTimeout(displayGameMode, 2000); //waits two seconds and then displays the choose your fighter view
+});
 
 hardGameBoard.addEventListener('click', function(event){
 	makeMovesHard(event)
@@ -37,12 +38,12 @@ hardGameBoard.addEventListener('click', function(event){
 	displayMoves();
 	displayWinsHard();
 	setTimeout(displayGameMode, 2000);
-})
+});
 
 changeGameBtn.addEventListener('click', function(){
-	currentGame.resetGame();
-	displayChooseDifficulty();
-})
+	currentGame.resetGame(); //the gameType property is set to null
+	displayChooseDifficulty(); //the original page is displayed if the gameType is null
+});
 
 
 function setGameMode(event) {
@@ -50,8 +51,8 @@ function setGameMode(event) {
 		currentGame.gameType = 'easy';
 	} else if (event.target.id === 'hardMode') {
 		currentGame.gameType = 'hard';
-	}
-}
+	};
+};
 
 function displayGameMode() {
 	subTitle.innerText = "Choose your fighter!"
@@ -81,7 +82,7 @@ function displayMoves() {
 }
 
 function displayWinsEasy() {
-	displayPlayerInfo();
+	displayPlayerInfo(); //this is here to update the win count
 	var p1move = currentGame.playerOne.move;
 	var p2move = currentGame.playerTwo.move;
 	var easyMovesArr = currentGame.choicesEasy;
@@ -95,7 +96,7 @@ function displayWinsEasy() {
 	} 
 }
 
-function displayWinsHard() {
+function displayWinsHard() { //can I use .checkForWinConditionsHard to do this? what if I add return values and change the subtitles based on that?
 	displayPlayerInfo();
 	var p1move = currentGame.playerOne.move;
 	var p2move = currentGame.playerTwo.move;
@@ -132,8 +133,8 @@ function displayChooseDifficulty() {
 
 
 function makeMovesEasy(event) {
-	currentGame.playerTwo.takeTurn('easy');
-	if(event.target.id === 'rock') {
+	currentGame.playerTwo.takeTurn('easy'); //computer takes an easy mode move, i.e. its move property is set with a random number btwn 0-2
+	if(event.target.id === 'rock') { //sets the move property for playerone depending on which emoji they click on
 		currentGame.playerOne.takeTurn('easy', 0);
 	} else if (event.target.id === 'paper') {
 		currentGame.playerOne.takeTurn('easy', 1);
@@ -142,7 +143,7 @@ function makeMovesEasy(event) {
 	}
 }
 
-function makeMovesHard(event){
+function makeMovesHard(event){ //same as above but for hard mode
 	currentGame.playerTwo.takeTurn('hard');
 	if(event.target.id === 'final-girl') {
 		currentGame.playerOne.takeTurn('easy', 0);
