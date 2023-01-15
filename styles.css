@@ -27,7 +27,7 @@ h2 {
 }
 
 h3 {
-    font-size: 40px;
+    font-size: 45px;
     background-color: black;
     margin-top: 10px;
 }
@@ -45,27 +45,46 @@ main {
     flex-direction: column;
     align-items: center;
 }
+
 .game-mode-text {
     color: black;
     background-color: red;
     margin-bottom: 15px;
+    cursor: pointer;
 }
 
 .game-mode {
     background-color: red;
     /* border: solid blue; */
     width: 400px;
-    margin-bottom: 50px
+    margin-bottom: 50px;
 }
 
-.game-mode-easy {
+.moves {
+    background-color: red;
+    /* border: solid blue; */
+    width: 450px;
+    height: 400px;
+    margin-bottom: 50px;
+    margin-top: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.display-choices {
+    background-color: red;
+    font-size: 200px;
+}
+
+.game-board-easy {
     background-color: red;
     width: 400px;
     height: 400px;
     margin-top: 100px;
 }
 
-.game-mode-hard {
+.game-board-hard {
     background-color: red;
     width: 400px;
     height: 400px;
@@ -89,8 +108,9 @@ button {
     padding: 20px;
     border: dotted red;
     width: 100px;
-    /* flex-direction: row; */
+    flex-direction: row;
     align-self: center;
+    cursor: pointer;
 }
 
 
