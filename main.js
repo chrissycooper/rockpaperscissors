@@ -17,19 +17,19 @@ var playerTwoToken = document.getElementById('playerTwoToken');
 var playerTwoName = document.getElementById('playerTwoName');
 var changeGameBtn = document.getElementById('changeGameBtn');
 
-displayPlayerInfo(); //on page load, display the player info
+displayPlayerInfo();
 
 chooseGameView.addEventListener('click', function(event) { 
-  setGameMode(event);	//uses event delegation to set and display the game mode, if they click on 'easy', it sets the current game 's mode to 'easy'
-  displayGameMode(); //displays the view of the game mode depending on the gameType property of the current Game 
+  setGameMode(event);
+  displayGameMode();
 });
 
-easyGameBoard.addEventListener('click', function(event) { //uses event delegation to figure out which move the user is making, by adding the EL to the whole easy board section
-	makeMovesEasy(event); //sets the move property for the two players
-	currentGame.checkForWinConditionsEasy(); //compares the moves of the two players based on the information stored in the choices array 
-	displayMoves(); //displays moves depending on currentGame.gameType
-	displayWinsEasy(); //decides the subtitle mainly, updates the win count on the DOM
-	setTimeout(displayGameMode, 2000); //waits two seconds and then displays the choose your fighter view
+easyGameBoard.addEventListener('click', function(event) {
+	makeMovesEasy(event);
+	currentGame.checkForWinConditionsEasy();
+	displayMoves();
+	displayWinsEasy();
+	setTimeout(displayGameMode, 2000);
 });
 
 hardGameBoard.addEventListener('click', function(event){
@@ -41,10 +41,9 @@ hardGameBoard.addEventListener('click', function(event){
 });
 
 changeGameBtn.addEventListener('click', function(){
-	currentGame.resetGame(); //the gameType property is set to null
-	displayChooseDifficulty(); //the original page is displayed if the gameType is null
+	currentGame.resetGame();
+	displayChooseDifficulty();
 });
-
 
 function setGameMode(event) {
 	if(event.target.id === 'easyMode') {
@@ -64,8 +63,8 @@ function displayGameMode() {
 		show(hardGameBoard);
 		hide(chooseGameView);
 		hide(movesDisplay);
-	}
-}
+	};
+};
 
 function displayMoves() {
 	if (currentGame.gameType === 'easy') {
@@ -78,11 +77,11 @@ function displayMoves() {
 		show(movesDisplay);
 		humanMove.innerText = currentGame.choicesHard[currentGame.playerOne.move].token; 
 		computerMove.innerText = currentGame.choicesHard[currentGame.playerTwo.move].token;
-	}
-}
+	};
+};
 
 function displayWinsEasy() {
-	displayPlayerInfo(); //this is here to update the win count
+	displayPlayerInfo();
 	var p1move = currentGame.playerOne.move;
 	var p2move = currentGame.playerTwo.move;
 	var easyMovesArr = currentGame.choicesEasy;
@@ -93,10 +92,10 @@ function displayWinsEasy() {
 		subTitle.innerText = "Human wins this round!";
 	} else if (easyMovesArr[p2move].name === easyMovesArr[p1move].losesTo) {
 		subTitle.innerText = "Computer wins this round!";
-	} 
-}
+	};
+};
 
-function displayWinsHard() { //can I use .checkForWinConditionsHard to do this? what if I add return values and change the subtitles based on that?
+function displayWinsHard() {
 	displayPlayerInfo();
 	var p1move = currentGame.playerOne.move;
 	var p2move = currentGame.playerTwo.move;
@@ -108,8 +107,8 @@ function displayWinsHard() { //can I use .checkForWinConditionsHard to do this? 
 		subTitle.innerText = "Human wins this round!";
 	} else if (hardMovesArr[p2move].beats.includes(hardMovesArr[p1move].name)) {
 		subTitle.innerText = "Computer wins this round!";
-	} 
-}
+	}; 
+};
 
 function displayPlayerInfo() {
 	humanWins.innerText = `wins: ${currentGame.playerOne.wins}`;
@@ -118,7 +117,7 @@ function displayPlayerInfo() {
 	playerOneName.innerText = currentGame.playerOne.name;
 	playerTwoToken.innerText = currentGame.playerTwo.token;
 	playerTwoName.innerText = currentGame.playerTwo.name;
-}
+};
 
 function displayChooseDifficulty() {
 	if (!currentGame.gameType) {
@@ -128,22 +127,21 @@ function displayChooseDifficulty() {
 		hide(movesDisplay);
 		show(chooseGameView);
 		displayPlayerInfo();
-	}
-}
-
+	};
+};
 
 function makeMovesEasy(event) {
-	currentGame.playerTwo.takeTurn('easy'); //computer takes an easy mode move, i.e. its move property is set with a random number btwn 0-2
-	if(event.target.id === 'rock') { //sets the move property for playerone depending on which emoji they click on
+	currentGame.playerTwo.takeTurn('easy');
+	if(event.target.id === 'rock') {
 		currentGame.playerOne.takeTurn('easy', 0);
 	} else if (event.target.id === 'paper') {
 		currentGame.playerOne.takeTurn('easy', 1);
 	} else if (event.target.id === 'scissors') {
 		currentGame.playerOne.takeTurn('easy', 2);
-	}
-}
+	};
+};
 
-function makeMovesHard(event){ //same as above but for hard mode
+function makeMovesHard(event){
 	currentGame.playerTwo.takeTurn('hard');
 	if(event.target.id === 'final-girl') {
 		currentGame.playerOne.takeTurn('easy', 0);
@@ -155,13 +153,13 @@ function makeMovesHard(event){ //same as above but for hard mode
 		currentGame.playerOne.takeTurn('easy', 3);
 	} else if (event.target.id === 'nerd') {
 		currentGame.playerOne.takeTurn('easy', 4);
-	}
-}
+	};
+};
 
 function hide(element){
   element.classList.add('hidden');
-}
+};
 
 function show(element) {
   element.classList.remove('hidden');
-}
+};

@@ -7,7 +7,7 @@ class Game {
             {name: "rock", token: "💀", beats: "scissors", losesTo: "paper"}, 
             {name: "paper", token: "🫀", beats: "rock", losesTo: "scissors"}, 
             {name: "scissors",token: "🔪", beats: "paper", losesTo: "rock"}
-        ]
+        ];
         this.choicesHard = [
             {name: "final girl", token: "👩🏼‍🦰", beats: ['hunter', 'killer'], losesTo: ['jock', 'nerd']},
             {name: "jock", token: "🏋🏿", beats: ['final girl', 'nerd'], losesTo: ['hunter', 'killer']}, 
@@ -15,7 +15,7 @@ class Game {
             {name: "killer", token: "🧟‍♂️", beats: ['jock', 'nerd'], losesTo: ['final girl', 'hunter']},
             {name: "nerd", token: "🤓", beats: ['final girl', 'hunter'], losesTo: ['jock', 'killer']}
         ];
-    }
+    };
    
     checkForWinConditionsEasy() {
         var p1MoveObj = this.choicesEasy[this.playerOne.move]; 
@@ -26,8 +26,8 @@ class Game {
             this.playerTwo.wins++;
         } else if (p2MoveObj.name === p1MoveObj.beats) {
             this.playerOne.wins++;
-        }
-    }
+        };
+    };
 
     checkForWinConditionsHard() {
         var p1MoveObj = this.choicesHard[this.playerOne.move]; 
@@ -38,14 +38,14 @@ class Game {
             this.playerOne.wins++;
         } else if (p2MoveObj.beats.includes(p1MoveObj.name)) {
             this.playerTwo.wins++;
-        }
-    }
+        };
+    };
 
     resetGame() {
         this.gameType = null;
         this.playerOne.wins = 0;
         this.playerTwo.wins = 0;
-    }
-}
+    };
+};
 
 
