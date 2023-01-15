@@ -1,5 +1,6 @@
 var currentGame = new Game();
 
+
 var chooseGameView = document.getElementById("chooseView");
 var subTitle = document.getElementById("subTitle");
 var humanMove = document.getElementById("humanMove");
@@ -15,9 +16,7 @@ var playerTwoToken = document.getElementById('playerTwoToken');
 var playerTwoName = document.getElementById('playerTwoName');
 var changeGameBtn = document.getElementById('changeGameBtn');
 
-
 displayPlayerInfo();
-
 
 chooseGameView.addEventListener('click', function(event) {
   setGameMode(event);
