@@ -82,17 +82,14 @@ function displayMoves() {
 
 function displayWinsEasy() {
 	displayPlayerInfo();
-	var p1move = currentGame.playerOne.move;
-	var p2move = currentGame.playerTwo.move;
-	var easyMovesArr = currentGame.choicesEasy;
-
-	if (currentGame.playerOne.move === currentGame.playerTwo.move) {
+	
+	if(currentGame.checkForWinConditionsEasy() === "It's a tie!") {
 		subTitle.innerText = "It's a tie!!";
-	} else if (easyMovesArr[p1move].name === easyMovesArr[p2move].losesTo) {
-		subTitle.innerText = "Human wins this round!";
-	} else if (easyMovesArr[p2move].name === easyMovesArr[p1move].losesTo) {
+	} else if (currentGame.checkForWinConditionsEasy() === "Computer wins!") {
 		subTitle.innerText = "Computer wins this round!";
-	};
+	} else if (currentGame.checkForWinConditionsEasy() === "Human wins!") {
+		subTitle.innerText = "Human wins this round!";
+	}
 };
 
 function displayWinsHard() {
