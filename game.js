@@ -38,8 +38,10 @@ class Game {
             return "It's a tie!";
         } else if(p1MoveObj.beats.includes(p2MoveObj.name)) { 
             this.playerOne.wins++;
+            return `${this.playerOne.name} wins!`
         } else if (p2MoveObj.beats.includes(p1MoveObj.name)) {
             this.playerTwo.wins++;
+            return `${this.playerTwo.name} wins!`
         };
     };
 
