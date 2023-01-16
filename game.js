@@ -7,7 +7,7 @@ class Game {
             {name: "rock", token: "💀", beats: "scissors", losesTo: "paper"}, 
             {name: "paper", token: "🫀", beats: "rock", losesTo: "scissors"}, 
             {name: "scissors",token: "🔪", beats: "paper", losesTo: "rock"}
-        ]
+        ];
         this.choicesHard = [
             {name: "final girl", token: "👩🏼‍🦰", beats: ['hunter', 'killer'], losesTo: ['jock', 'nerd']},
             {name: "jock", token: "🏋🏿", beats: ['final girl', 'nerd'], losesTo: ['hunter', 'killer']}, 
@@ -15,7 +15,7 @@ class Game {
             {name: "killer", token: "🧟‍♂️", beats: ['jock', 'nerd'], losesTo: ['final girl', 'hunter']},
             {name: "nerd", token: "🤓", beats: ['final girl', 'hunter'], losesTo: ['jock', 'killer']}
         ];
-    }
+    };
    
     checkForWinConditionsEasy() {
         var p1MoveObj = this.choicesEasy[this.playerOne.move]; 
@@ -24,28 +24,32 @@ class Game {
             return "It's a tie!";
         } else if (p1MoveObj.name === p2MoveObj.beats) {
             this.playerTwo.wins++;
+            return `${this.playerTwo.name} wins!`
         } else if (p2MoveObj.name === p1MoveObj.beats) {
             this.playerOne.wins++;
-        }
-    }
+            return `${this.playerOne.name} wins!`
+        };
+    };
 
     checkForWinConditionsHard() {
         var p1MoveObj = this.choicesHard[this.playerOne.move]; 
         var p2MoveObj = this.choicesHard[this.playerTwo.move];
         if (this.playerOne.move === this.playerTwo.move) {
-            return "it's a tie, and it's working";
+            return "It's a tie!";
         } else if(p1MoveObj.beats.includes(p2MoveObj.name)) { 
             this.playerOne.wins++;
+            return `${this.playerOne.name} wins!`
         } else if (p2MoveObj.beats.includes(p1MoveObj.name)) {
             this.playerTwo.wins++;
-        }
-    }
+            return `${this.playerTwo.name} wins!`
+        };
+    };
 
     resetGame() {
         this.gameType = null;
         this.playerOne.wins = 0;
         this.playerTwo.wins = 0;
-    }
-}
+    };
+};
 
 

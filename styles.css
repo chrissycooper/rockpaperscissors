@@ -1,9 +1,9 @@
 * {
-    /* border: solid salmon; */
     text-align: center;
     font-family: 'Melted Monster';
     color: red;
     background-color: rgb(29, 27, 27);
+    padding: 1px;
 }
 
 @font-face {
@@ -32,10 +32,15 @@ h3 {
     margin-top: 10px;
 }
 
+.sub-title {
+    background-color: rgb(29, 27, 27);
+}
+
 h4 {
     font-size: 20px; 
     background-color: red;
     color: black;
+    margin: 5px;
 }
 
 main {
@@ -55,14 +60,13 @@ main {
 
 .game-mode {
     background-color: red;
-    /* border: solid blue; */
     width: 400px;
     margin-bottom: 50px;
+    padding: 3px;
 }
 
 .moves {
     background-color: red;
-    /* border: solid blue; */
     width: 450px;
     height: 400px;
     margin-bottom: 50px;
@@ -77,27 +81,23 @@ main {
     font-size: 200px;
 }
 
-.game-board-easy {
+.game-board-easy, .game-board-hard {
     background-color: red;
     width: 400px;
     height: 400px;
-    margin-top: 100px;
+    margin-top: 50px;
 }
 
 .game-board-hard {
-    background-color: red;
-    width: 400px;
-    height: 400px;
-    display:flex;
+    display: flex;
     flex-flow: wrap;
     align-items: center;
     justify-content: center;
-    margin-top: 100px;
 }
 
 
 aside {
-    height: 100%;
+    height: 100vh;
     width: 20%;
     background-color: black;
     display: flex;
@@ -116,4 +116,4 @@ button {
 
 .hidden {
     display: none;
-    }
+}

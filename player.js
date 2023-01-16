@@ -4,7 +4,7 @@ class Player {
     this.token = token;
     this.wins = 0;
     this.move = null;
-  }
+  };
 
   takeTurn(mode, choice) {
     if (this.name === "Computer" && mode === 'easy') {
@@ -15,6 +15,6 @@ class Player {
       this.move = num;
     } else {
       this.move = choice;
-    }
-  }
-}
+    };
+  };
+};

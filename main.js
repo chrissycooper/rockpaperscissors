@@ -1,5 +1,6 @@
-var currentGame = new Game();
+//Global Variables 👇
 
+var currentGame = new Game();
 
 var chooseGameView = document.getElementById("chooseView");
 var subTitle = document.getElementById("subTitle");
@@ -18,10 +19,10 @@ var changeGameBtn = document.getElementById('changeGameBtn');
 
 displayPlayerInfo();
 
-chooseGameView.addEventListener('click', function(event) {
+chooseGameView.addEventListener('click', function(event) { 
   setGameMode(event);
   displayGameMode();
-})
+});
 
 easyGameBoard.addEventListener('click', function(event) {
 	makeMovesEasy(event);
@@ -29,7 +30,7 @@ easyGameBoard.addEventListener('click', function(event) {
 	displayMoves();
 	displayWinsEasy();
 	setTimeout(displayGameMode, 2000);
-})
+});
 
 hardGameBoard.addEventListener('click', function(event){
 	makeMovesHard(event)
@@ -37,21 +38,20 @@ hardGameBoard.addEventListener('click', function(event){
 	displayMoves();
 	displayWinsHard();
 	setTimeout(displayGameMode, 2000);
-})
+});
 
 changeGameBtn.addEventListener('click', function(){
 	currentGame.resetGame();
 	displayChooseDifficulty();
-})
-
+});
 
 function setGameMode(event) {
 	if(event.target.id === 'easyMode') {
 		currentGame.gameType = 'easy';
 	} else if (event.target.id === 'hardMode') {
 		currentGame.gameType = 'hard';
-	}
-}
+	};
+};
 
 function displayGameMode() {
 	subTitle.innerText = "Choose your fighter!"
@@ -63,8 +63,8 @@ function displayGameMode() {
 		show(hardGameBoard);
 		hide(chooseGameView);
 		hide(movesDisplay);
-	}
-}
+	};
+};
 
 function displayMoves() {
 	if (currentGame.gameType === 'easy') {
@@ -77,8 +77,8 @@ function displayMoves() {
 		show(movesDisplay);
 		humanMove.innerText = currentGame.choicesHard[currentGame.playerOne.move].token; 
 		computerMove.innerText = currentGame.choicesHard[currentGame.playerTwo.move].token;
-	}
-}
+	};
+};
 
 function displayWinsEasy() {
 	displayPlayerInfo();
@@ -92,8 +92,8 @@ function displayWinsEasy() {
 		subTitle.innerText = "Human wins this round!";
 	} else if (easyMovesArr[p2move].name === easyMovesArr[p1move].losesTo) {
 		subTitle.innerText = "Computer wins this round!";
-	} 
-}
+	};
+};
 
 function displayWinsHard() {
 	displayPlayerInfo();
@@ -107,8 +107,8 @@ function displayWinsHard() {
 		subTitle.innerText = "Human wins this round!";
 	} else if (hardMovesArr[p2move].beats.includes(hardMovesArr[p1move].name)) {
 		subTitle.innerText = "Computer wins this round!";
-	} 
-}
+	}; 
+};
 
 function displayPlayerInfo() {
 	humanWins.innerText = `wins: ${currentGame.playerOne.wins}`;
@@ -117,7 +117,7 @@ function displayPlayerInfo() {
 	playerOneName.innerText = currentGame.playerOne.name;
 	playerTwoToken.innerText = currentGame.playerTwo.token;
 	playerTwoName.innerText = currentGame.playerTwo.name;
-}
+};
 
 function displayChooseDifficulty() {
 	if (!currentGame.gameType) {
@@ -127,9 +127,8 @@ function displayChooseDifficulty() {
 		hide(movesDisplay);
 		show(chooseGameView);
 		displayPlayerInfo();
-	}
-}
-
+	};
+};
 
 function makeMovesEasy(event) {
 	currentGame.playerTwo.takeTurn('easy');
@@ -139,8 +138,8 @@ function makeMovesEasy(event) {
 		currentGame.playerOne.takeTurn('easy', 1);
 	} else if (event.target.id === 'scissors') {
 		currentGame.playerOne.takeTurn('easy', 2);
-	}
-}
+	};
+};
 
 function makeMovesHard(event){
 	currentGame.playerTwo.takeTurn('hard');
@@ -154,13 +153,13 @@ function makeMovesHard(event){
 		currentGame.playerOne.takeTurn('easy', 3);
 	} else if (event.target.id === 'nerd') {
 		currentGame.playerOne.takeTurn('easy', 4);
-	}
-}
+	};
+};
 
 function hide(element){
   element.classList.add('hidden');
-}
+};
 
 function show(element) {
   element.classList.remove('hidden');
-}
+};
