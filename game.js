@@ -47,8 +47,6 @@ class Game {
 
     resetGame() {
         this.gameType = null;
-        this.playerOne.wins = 0;
-        this.playerTwo.wins = 0;
     };
 };
 
