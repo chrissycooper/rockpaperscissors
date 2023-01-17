@@ -32,10 +32,6 @@ h3 {
     margin-top: 10px;
 }
 
-.sub-title {
-    background-color: rgb(29, 27, 27);
-}
-
 h4 {
     font-size: 20px; 
     background-color: red;
@@ -49,6 +45,27 @@ main {
     display: flex;
     flex-direction: column;
     align-items: center;
+}
+
+aside {
+    height: 100vh;
+    width: 20%;
+    background-color: black;
+    display: flex;
+    flex-flow: column;
+}
+
+button {
+    padding: 20px;
+    border: dotted red;
+    width: 100px;
+    flex-direction: row;
+    align-self: center;
+    cursor: pointer;
+}
+
+.sub-title {
+    background-color: rgb(29, 27, 27);
 }
 
 .game-mode-text {
@@ -94,25 +111,6 @@ main {
     align-items: center;
     justify-content: center;
 }
-
-
-aside {
-    height: 100vh;
-    width: 20%;
-    background-color: black;
-    display: flex;
-    flex-flow: column;
-}
-
-button {
-    padding: 20px;
-    border: dotted red;
-    width: 100px;
-    flex-direction: row;
-    align-self: center;
-    cursor: pointer;
-}
-
 
 .hidden {
     display: none;
