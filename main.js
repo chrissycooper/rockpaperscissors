@@ -42,6 +42,7 @@ hardGameBoard.addEventListener('click', function(event){
 
 changeGameBtn.addEventListener('click', function(){
 	currentGame.resetGame();
+	hide(changeGameBtn);
 	displayChooseDifficulty();
 });
 
@@ -55,6 +56,7 @@ function setGameMode(event) {
 
 function displayGameMode() {
 	subTitle.innerText = "Choose your fighter!"
+		show(changeGameBtn);
 	if(currentGame.gameType === 'easy') {
 		show(easyGameBoard);
 		hide(chooseGameView);
