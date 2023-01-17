@@ -7,14 +7,15 @@ class Player {
   };
 
   takeTurn(mode, choice) {
-    if (this.name === "Computer" && mode === 'easy') {
-      var num = Math.floor(Math.random() * 3);
-      this.move = num;
-    } else if (this.name === "Computer" && mode === 'hard') {
+    if (this.name !== "Computer") {
+      this.move = choice;
+      return;
+    } else if (mode === 'easy') {
+       var num = Math.floor(Math.random() * 3);
+       this.move = num;
+    } else if (mode === 'hard') {
       var num = Math.floor(Math.random() * 5);
       this.move = num;
-    } else {
-      this.move = choice;
     };
   };
 };
