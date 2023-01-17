@@ -18,28 +18,28 @@ class Game {
     };
    
     checkForWinConditionsEasy() {
-        var p1MoveObj = this.choicesEasy[this.playerOne.move]; 
-        var p2MoveObj = this.choicesEasy[this.playerTwo.move];
+        var p1Move = this.choicesEasy[this.playerOne.move]; 
+        var p2Move = this.choicesEasy[this.playerTwo.move];
         if (this.playerOne.move === this.playerTwo.move) {
             return "It's a tie!";
-        } else if (p1MoveObj.name === p2MoveObj.beats) {
+        } else if (p1Move.name === p2Move.beats) {
             this.playerTwo.wins++;
             return `${this.playerTwo.name} wins!`
-        } else if (p2MoveObj.name === p1MoveObj.beats) {
+        } else if (p2Move.name === p1Move.beats) {
             this.playerOne.wins++;
             return `${this.playerOne.name} wins!`
         };
     };
 
     checkForWinConditionsHard() {
-        var p1MoveObj = this.choicesHard[this.playerOne.move]; 
-        var p2MoveObj = this.choicesHard[this.playerTwo.move];
+        var p1Move = this.choicesHard[this.playerOne.move]; 
+        var p2Move = this.choicesHard[this.playerTwo.move];
         if (this.playerOne.move === this.playerTwo.move) {
             return "It's a tie!";
-        } else if(p1MoveObj.beats.includes(p2MoveObj.name)) { 
+        } else if(p1Move.beats.includes(p2Move.name)) { 
             this.playerOne.wins++;
             return `${this.playerOne.name} wins!`
-        } else if (p2MoveObj.beats.includes(p1MoveObj.name)) {
+        } else if (p2Move.beats.includes(p1Move.name)) {
             this.playerTwo.wins++;
             return `${this.playerTwo.name} wins!`
         };
