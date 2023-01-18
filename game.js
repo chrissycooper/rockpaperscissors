@@ -6,7 +6,7 @@ class Game {
         this.choicesEasy = [
             {name: "rock", token: "💀", beats: "scissors", losesTo: "paper"}, 
             {name: "paper", token: "🫀", beats: "rock", losesTo: "scissors"}, 
-            {name: "scissors",token: "🔪", beats: "paper", losesTo: "rock"}
+            {name: "scissors", token: "🔪", beats: "paper", losesTo: "rock"}
         ];
         this.choicesHard = [
             {name: "final girl", token: "👩🏼‍🦰", beats: ['hunter', 'killer'], losesTo: ['jock', 'nerd']},

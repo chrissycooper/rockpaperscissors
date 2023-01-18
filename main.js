@@ -55,16 +55,18 @@ function setGameMode(event) {
 };
 
 function displayGameMode() {
-	subTitle.innerText = "Choose your fighter!"
-		show(changeGameBtn);
 	if(currentGame.gameType === 'easy') {
 		show(easyGameBoard);
 		hide(chooseGameView);
 		hide(movesDisplay);
+		subTitle.innerText = "Choose your fighter!"
+		show(changeGameBtn);
 	} else if (currentGame.gameType === 'hard') {
 		show(hardGameBoard);
 		hide(chooseGameView);
 		hide(movesDisplay);
+		subTitle.innerText = "Choose your fighter!"
+		show(changeGameBtn);
 	};
 };
 
