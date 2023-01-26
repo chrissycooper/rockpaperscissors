@@ -88,13 +88,13 @@ function displayWinsEasy() {
 	displayPlayerInfo();
 	var p1move = currentGame.playerOne.move;
 	var p2move = currentGame.playerTwo.move;
-	var easyMovesArr = currentGame.choicesEasy;
+	var easyMoves = currentGame.choicesEasy;
 
 	if (currentGame.playerOne.move === currentGame.playerTwo.move) {
 		subTitle.innerText = "It's a tie!!";
-	} else if (easyMovesArr[p1move].name === easyMovesArr[p2move].losesTo) {
+	} else if (easyMoves[p1move].name === easyMoves[p2move].losesTo) {
 		subTitle.innerText = "Human wins this round!";
-	} else if (easyMovesArr[p2move].name === easyMovesArr[p1move].losesTo) {
+	} else if (easyMoves[p2move].name === easyMoves[p1move].losesTo) {
 		subTitle.innerText = "Computer wins this round!";
 	};
 };
@@ -103,13 +103,13 @@ function displayWinsHard() {
 	displayPlayerInfo();
 	var p1move = currentGame.playerOne.move;
 	var p2move = currentGame.playerTwo.move;
-	var hardMovesArr = currentGame.choicesHard;
+	var hardMoves = currentGame.choicesHard;
 
 	if (currentGame.playerOne.move === currentGame.playerTwo.move) {
 		subTitle.innerText = "It's a tie!!";
-	} else if (hardMovesArr[p1move].beats.includes(hardMovesArr[p2move].name)) {
+	} else if (hardMoves[p1move].beats.includes(hardMoves[p2move].name)) {
 		subTitle.innerText = "Human wins this round!";
-	} else if (hardMovesArr[p2move].beats.includes(hardMovesArr[p1move].name)) {
+	} else if (hardMoves[p2move].beats.includes(hardMoves[p1move].name)) {
 		subTitle.innerText = "Computer wins this round!";
 	}; 
 };
